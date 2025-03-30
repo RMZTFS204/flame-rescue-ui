@@ -74,10 +74,23 @@ export default {
           dark: "#222222",
           gray: "#8E9196",
         },
+        // MyMagicMeet theme colors
+        magic: {
+          blue: "#D3E4FD", // Soft blue
+          darkBlue: "#0EA5E9", // Ocean blue for buttons/links
+          gold: "#E6B325", // Gold for accents
+          goldLight: "#F9D775", // Light gold for highlights
+          purple: "#8D7FBC", // Magical purple
+          pink: "#F7C0DF", // Soft pink
+          night: "#1E293B", // Dark blue for night theme
+          background: "#F8FAFC", // Light background
+          card: "#FFFFFF", // Card background
+        }
       },
       fontFamily: {
         'baloo': ['"Baloo 2"', 'cursive'],
         'rubik': ['Rubik', 'sans-serif'],
+        'enchanted': ['"Baloo 2"', 'fantasy', 'cursive'], // For magical headings
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -127,6 +140,18 @@ export default {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-5px)" },
         },
+        "sparkle": {
+          "0%, 100%": { opacity: "0", transform: "scale(0.8) rotate(0deg)" },
+          "50%": { opacity: "1", transform: "scale(1.2) rotate(180deg)" },
+        },
+        "magic-fade-in": {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "magic-pulse": {
+          "0%, 100%": { transform: "scale(1)", boxShadow: "0 0 0 rgba(230, 179, 37, 0)" },
+          "50%": { transform: "scale(1.05)", boxShadow: "0 0 10px rgba(230, 179, 37, 0.5)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -137,14 +162,21 @@ export default {
         "water-flow": "water-flow 1s linear infinite",
         "danger-flash": "danger-flash 0.7s infinite",
         "truck-bounce": "truck-bounce 3s ease-in-out infinite",
+        "sparkle": "sparkle 2s ease-in-out infinite",
+        "magic-fade-in": "magic-fade-in 0.7s ease-out",
+        "magic-pulse": "magic-pulse 3s ease-in-out infinite",
       },
       boxShadow: {
         'glow': '0 0 15px rgba(234, 56, 76, 0.6)',
         'fire-glow': '0 0 20px rgba(249, 115, 22, 0.7)',
+        'magic-glow': '0 0 15px rgba(230, 179, 37, 0.4)',
+        'enchanted': '0 0 20px rgba(141, 127, 188, 0.6)',
       },
       backgroundImage: {
         'fire-gradient': 'linear-gradient(90deg, #ea384c, #F97316)',
         'water-gradient': 'linear-gradient(90deg, #3b82f6, #38bdf8)',
+        'magic-gradient': 'linear-gradient(135deg, #D3E4FD, #8D7FBC)',
+        'gold-gradient': 'linear-gradient(to right, #E6B325, #F9D775)',
       },
     },
   },
