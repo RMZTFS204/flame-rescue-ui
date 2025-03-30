@@ -1,30 +1,42 @@
 
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Flame, Truck, Heart, Timer } from "lucide-react";
+import { Flame, Truck, Heart } from "lucide-react";
 import FireButton from "@/components/FireButton";
 import TruckAnimation from "@/components/TruckAnimation";
 import FireAnimation from "@/components/FireAnimation";
 
+/**
+ * LandingPage Component
+ * 
+ * The main entry point of the Firefighter Rescue Simulator,
+ * displaying the game title, description, and start button.
+ */
 const LandingPage = () => {
+  // State to control animation timing
   const [animateElements, setAnimateElements] = useState(false);
   
+  // Start animations after component mounts
   useEffect(() => {
     // Start animations after a short delay to allow page to render
     const timer = setTimeout(() => {
       setAnimateElements(true);
     }, 300);
     
+    // Clean up timer on component unmount
     return () => clearTimeout(timer);
   }, []);
   
+  // Render the landing page
   return (
     <div className="game-container relative overflow-hidden">
-      {/* Background effects */}
+      {/* Background styling */}
       <div className="absolute inset-0 bg-gradient-to-br from-neutral-dark to-black z-0"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(249,115,22,0.15),transparent_70%)] z-0"></div>
       
+      {/* Main content container */}
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-12">
+        {/* Game title section with animation */}
         <div className={`transition-all duration-1000 transform ${animateElements ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
           <div className="flex items-center justify-center gap-3 mb-6">
             <Flame className="text-fire-red animate-fire-pulse" size={40} />
@@ -53,20 +65,23 @@ const LandingPage = () => {
           </div>
         </div>
         
-        {/* Game features */}
+        {/* Game features section */}
         <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 transition-all duration-1000 delay-500 transform ${animateElements ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          {/* Feature 1: Control Your Truck */}
           <div className="game-card p-4 flex flex-col items-center text-center">
             <Truck className="text-fire-orange mb-3" size={30} />
             <h3 className="text-lg font-bold text-white mb-2">Control Your Truck</h3>
             <p className="text-white/70 text-sm">Drive through city streets with intuitive controls to reach fires quickly.</p>
           </div>
           
+          {/* Feature 2: Fight Fires */}
           <div className="game-card p-4 flex flex-col items-center text-center">
             <Flame className="text-fire-red mb-3" size={30} />
             <h3 className="text-lg font-bold text-white mb-2">Fight Fires</h3>
             <p className="text-white/70 text-sm">Use your water hose to extinguish fires before they spread too far.</p>
           </div>
           
+          {/* Feature 3: Save Civilians */}
           <div className="game-card p-4 flex flex-col items-center text-center">
             <Heart className="text-fire-red mb-3" size={30} />
             <h3 className="text-lg font-bold text-white mb-2">Save Civilians</h3>
@@ -74,7 +89,7 @@ const LandingPage = () => {
           </div>
         </div>
         
-        {/* Start button */}
+        {/* Start button with animation */}
         <div className={`transition-all duration-1000 delay-700 transform ${animateElements ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
           <Link to="/level-select">
             <FireButton size="lg" isAnimated className="shadow-glow">
