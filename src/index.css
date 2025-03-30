@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Rubik:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -34,20 +37,14 @@
 
     --radius: 0.5rem;
 
+    /* Sidebar variables */
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -79,6 +76,7 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+    
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -96,6 +94,60 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-neutral-dark text-foreground font-rubik;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-baloo font-bold;
+  }
+}
+
+@layer components {
+  .fire-button {
+    @apply bg-fire-red hover:bg-fire-orange text-white font-baloo font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105;
+  }
+  
+  .game-container {
+    @apply relative min-h-screen w-full overflow-hidden bg-neutral-dark;
+  }
+  
+  .game-card {
+    @apply bg-white/10 backdrop-blur-md rounded-lg border border-white/20 shadow-lg;
+  }
+
+  .progress-container {
+    @apply w-full h-4 bg-white/20 rounded-full overflow-hidden;
+  }
+  
+  .level-card {
+    @apply relative bg-white/10 backdrop-blur-md rounded-xl border border-white/20 p-4 transition-all duration-300 hover:border-fire-orange;
+  }
+  
+  .level-locked {
+    @apply opacity-60 grayscale;
+  }
+  
+  .game-control {
+    @apply bg-white/20 backdrop-blur-md rounded-full p-4 shadow-lg transition-all duration-300;
+  }
+  
+  .joystick-base {
+    @apply relative w-32 h-32 bg-white/10 backdrop-blur-md rounded-full border-2 border-white/30;
+  }
+  
+  .joystick-handle {
+    @apply absolute w-16 h-16 bg-fire-orange rounded-full shadow-lg transform -translate-x-1/2 -translate-y-1/2 cursor-grab;
+  }
+  
+  .rescue-button {
+    @apply bg-fire-red text-white font-bold py-2 px-4 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2;
+  }
+
+  .meter-container {
+    @apply relative w-full h-4 bg-white/20 rounded-full overflow-hidden;
+  }
+  
+  .danger-alert {
+    @apply bg-fire-red/80 text-white p-2 rounded-lg animate-danger-flash text-center font-bold;
   }
 }
